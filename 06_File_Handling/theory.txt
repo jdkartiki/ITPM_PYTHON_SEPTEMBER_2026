@@ -1,0 +1,131 @@
+
+THEORY – FILE HANDLING IN PYTHON
+🔹 What is File Handling?
+
+File handling allows you to:
+
+Store data permanently (not just in RAM)
+Read/write/update/delete files
+Work with text, CSV, JSON, binary data, etc.
+
+🔹 File Modes in Python
+Mode	            Description
+r	                Read (default)
+w	                Write (overwrites file)
+a	                Append
+x	                Create (error if exists)
+b	                Binary mode
+t	                Text mode (default)
+r+	                Read + Write
+
+
+🔹 Basic Syntax
+file = open("filename.txt", "mode")
+file.close()
+
+Better way (recommended):
+
+with open("filename.txt", "r") as file:
+    data = file.read()
+
+✔ Automatically closes file
+
+🔹 Important File Methods
+Method	                    Description
+read()	                    Read full file
+read(n)	                    Read n characters
+readline()	                Read one line
+readlines()	                Read all lines as list
+write()	                    Write string
+writelines()	            Write list
+seek()	                    Move pointer
+tell()	                    Current position
+
+🔹 Types of Files
+Text Files (.txt)
+CSV Files (.csv)
+JSON Files (.json)
+Binary Files (.bin)
+
+
+=============================================================================
+
+
+
+THEORY – PICKLING IN PYTHON
+🔹 What is Pickling?
+
+Pickling is the process of converting a Python object into a byte stream (binary format) so it can be:
+
+Stored in a file
+Sent over a network
+Saved for later use
+
+👉 Reverse process = Unpickling (converting bytes back to Python object)
+
+🔹 Why Use Pickling?
+
+✔ Save complex data (lists, dictionaries, objects)
+✔ Store program state
+✔ Faster than text formats
+✔ Useful in ML models, caching, session storage
+
+🔹 Pickle Module
+
+Python provides a built-in module:
+
+import pickle
+🔹 Important Functions
+Function	                                Description
+pickle.dump(obj, file)	                    Save object to file
+pickle.load(file)	                        Load object from file
+pickle.dumps(obj)	                        Convert to byte string
+pickle.loads(bytes)	                        Convert bytes to object
+
+
+🔹 File Modes for Pickling
+Mode	Description
+wb	Write binary
+rb	Read binary
+ab	Append binary
+
+
+🔹 Basic Flow
+import pickle
+
+# Pickling
+with open("file.pkl", "wb") as f:
+    pickle.dump(data, f)
+
+# Unpickling
+with open("file.pkl", "rb") as f:
+    data = pickle.load(f)
+🔹 What Can Be Pickled?
+
+✔ Lists, tuples, dictionaries
+✔ Sets
+✔ Functions (some cases)
+✔ Classes and objects
+
+❌ Cannot pickle:
+
+Open files
+Database connections
+Threads
+🔹 Advantages
+
+✔ Fast and efficient
+✔ Stores Python objects directly
+✔ No manual parsing needed
+
+🔹 Disadvantages
+
+❌ Not secure (unsafe with unknown files)
+❌ Python-specific (not cross-language)
+❌ Binary format (not human-readable)
+
+🔹 Security Warning ⚠️
+
+👉 Never unpickle data from untrusted sources
+
+pickle.load(file)  # Can execute malicious code
