@@ -1,0 +1,20 @@
+[
+    {
+        "patient_id": "1",
+        "name": "Kartiki",
+        "age": 30,
+        "gender": "Female"
+    },
+    {
+        "patient_id": "2",
+        "name": "Aditi",
+        "age": 20,
+        "gender": "Femaale"
+    },
+    {
+        "patient_id": "3",
+        "name": "raj",
+        "age": 0,
+        "gender": "male"
+    }
+]
